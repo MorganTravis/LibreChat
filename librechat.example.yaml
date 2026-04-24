@@ -334,6 +334,41 @@ endpoints:
   #     #     deploymentName: claude-3-5-haiku@20241022  # Override for this model
 
   custom:
+    # LLMAPI
+      - name: "LLMAPI AI"
+      apiKey: "${LLM_API_KEY}"
+      baseURL: "https://api.llmapi.ai/v1/"
+      models:
+        default: ['auto'] # "auto" is a special value that uses the API's default model, you can also specify a list of models if you want to control which ones are available
+        fetch: true # Set to true to fetch the list of available models from the API (if supported), false to use the default list specified above
+      titleConvo: true
+      titleModel: "gpt-4o"
+      summarize: false
+      summaryModel: "gpt-4o"
+      dropParams: ["stop", "frequency_penalty"]
+      modelDisplayLabel: "LLMAPI AI"
+
+    # Perplexity
+      - name: "Perplexity"
+      apiKey: "${PERPLEXITY_API_KEY}"
+      baseURL: "https://api.perplexity.ai/"
+      models:
+        default: [
+          "sonar-deep-research",
+          "sonar-reasoning-pro",
+          "sonar-reasoning",
+          "sonar-pro",
+          "sonar",
+          "r1-1776"
+          ]
+        fetch: false # fetching list of models is not supported
+      titleConvo: true
+      titleModel: "llama-3-sonar-small-32k-chat"
+      summarize: false
+      summaryModel: "llama-3-sonar-small-32k-chat"
+      dropParams: ["stop", "frequency_penalty"]
+      modelDisplayLabel: "Perplexity"
+      
     # Groq Example
     - name: 'groq'
       apiKey: '${GROQ_API_KEY}'
