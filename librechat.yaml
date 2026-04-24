@@ -368,7 +368,7 @@ endpoints:
         summaryModel: "llama-3-sonar-small-32k-chat"
         dropParams: ["stop", "frequency_penalty"]
         modelDisplayLabel: "Perplexity"
-      
+
     # Groq Example
     - name: 'groq'
       apiKey: '${GROQ_API_KEY}'
